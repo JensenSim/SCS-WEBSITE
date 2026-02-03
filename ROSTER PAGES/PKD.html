@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PKD - Steel City Showdown</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+      color: #111;
+    }
+
+    /* TOP NAVIGATION (Matches Homepage) */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .nav-buttons a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.25s ease;
+    }
+
+    .nav-buttons a:hover::after {
+      width: 100%;
+    }
+
+    /* PROFILE LAYOUT */
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 120px 40px 60px;
+      gap: 50px;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* LEFT SIDE: PHOTO + NAME */
+    .profile-photo-wrapper {
+      width: 350px;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      border-radius: 25px;
+      object-fit: cover;
+      aspect-ratio: 3 / 4 ;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      border: 4px solid #ffcc00;
+    }
+
+    .profile-name {
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-image {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      object-fit: cover;
+    }
+
+    /* RIGHT SIDE: DETAILS */
+    .profile-details {
+      max-width: 650px;
+      flex: 1;
+      background: #fff;
+      padding: 30px 35px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .profile-details h2 {
+      margin-top: 0;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .profile-details p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .finisher-alias h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .finisher-alias ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .finisher-alias li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="top-bar">
+    <div class="nav-buttons">
+      <a href="../HOMEPAGE.html">HOME</a>
+      <a href="../roster.html">ROSTER</a>
+      <a href="../BELTS.html">BELTS</a>
+      <a href="../socials.html">SOCIALS</a>
+      <a href="../events.html">EVENTS</a>
+    </div>
+  </div>
+
+  <!-- PROFILE CONTENT -->
+  <div class="profile-container">
+
+    <!-- LEFT SIDE -->
+    <div class="profile-photo-wrapper">
+      <img src="../ROSTER PHOTOD/WOMEN/PKD.png" alt="PKD" class="profile-photo">
+
+      <div class="profile-name">
+        PKD
+        <img src="slamlogo.png" alt="Badge" class="badge-image">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="profile-details">
+      <h2>ABOUT</h2>
+      <p>
+        PKD, known throughout Steel City as The Pussykat Doll, built her reputation on raw competitiveness and an unshakable drive to prove she belonged among the elite. Starting as a Season 1 original, she spent her early run testing herself against every style the division had to offer, slowly sharpening her instincts and refining her craft. By the time Season 3 arrived, she had transformed into a completely different kind of threat — focused, dangerous, and ready to take over.
+
+Her evolution paid off in a major way when she captured the Women’s World Championship on Slam twice, establishing herself as one of the premier talents in the division. Each title win showcased a new level of precision and confidence, turning her from a loud, fearless presence into a fully realized powerhouse who could dominate any matchup placed in front of her.
+
+PKD’s intensity inside the ring is matched only by her willingness to speak her mind, a combination that keeps opponents on edge long before the bell even rings. Many in the locker room have learned to tread carefully around her, knowing that she thrives on confrontation and rarely backs down from a challenge. Her rise from early‑season scrapper to top‑tier competitor stands as one of the division’s defining success stories, and she continues to be a measuring stick for anyone hoping to break into the upper ranks of the women’s roster.
+        <h3>Finisher & Alias</h3>
+        <ul>
+          <li><strong>Finisher:</strong> Pop a Pussy</li>
+          <li><strong>Aliases:</strong> "PKD", "The Pussykat Doll</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

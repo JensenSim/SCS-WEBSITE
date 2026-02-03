@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joseph Manderson - Steel City Showdown</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+      color: #111;
+    }
+
+    /* TOP NAVIGATION (Matches Homepage) */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .nav-buttons a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.25s ease;
+    }
+
+    .nav-buttons a:hover::after {
+      width: 100%;
+    }
+
+    /* PROFILE LAYOUT */
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 120px 40px 60px;
+      gap: 50px;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* LEFT SIDE: PHOTO + NAME */
+    .profile-photo-wrapper {
+      width: 350px;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      border-radius: 25px;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      border: 4px solid #ffcc00;
+    }
+
+    .profile-name {
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-image {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      object-fit: cover;
+    }
+
+    /* RIGHT SIDE: DETAILS */
+    .profile-details {
+      max-width: 650px;
+      flex: 1;
+      background: #fff;
+      padding: 30px 35px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .profile-details h2 {
+      margin-top: 0;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .profile-details p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .finisher-alias h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .finisher-alias ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .finisher-alias li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="top-bar">
+    <div class="nav-buttons">
+      <a href="../HOMEPAGE.html">HOME</a>
+      <a href="../roster.html">ROSTER</a>
+      <a href="../BELTS.html">BELTS</a>
+      <a href="../socials.html">SOCIALS</a>
+      <a href="../events.html">EVENTS</a>
+
+    </div>
+  </div>
+
+  <!-- PROFILE CONTENT -->
+  <div class="profile-container">
+
+    <!-- LEFT SIDE -->
+    <div class="profile-photo-wrapper">
+      <img src="../ROSTER PHOTOD/MEN/MANDO.png" alt="MANDO" class="profile-photo">
+
+      <div class="profile-name">
+        Joseph Manderson
+        <img src="clashlogo.png" alt="Badge" class="badge-image">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="profile-details">
+      <h2>ABOUT</h2>
+      <p>
+       N/A
+      </p>
+
+      <div class="finisher-alias">
+        <h3>Finisher & Alias</h3>
+        <ul>
+          <li><strong>Finisher:</strong> Cattus Cattus Kick
+          <li><strong>Aliases:</strong> N/A
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
