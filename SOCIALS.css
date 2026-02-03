@@ -1,0 +1,98 @@
+/* SOCIALS PAGE */
+.socials-wrapper {
+  width: 100%;
+  padding: 120px 0 80px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+/* POSTS FEED */
+.posts-feed {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 80px;
+}
+
+.post-card {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.post-pfp {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.post-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.post-handle {
+  font-size: 14px;
+  color: #555;
+}
+
+.post-text {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.post-time {
+  font-size: 13px;
+  color: #777;
+}
+
+/* SOCIAL GRID */
+.social-grid {
+  width: 90%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+}
+
+.social-box {
+  background: #000;
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  padding: 25px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: 0.25s ease;
+}
+
+.social-box:hover {
+  transform: translateY(-4px);
+  background: #111;
+}
+
+.social-icon {
+  width: 50px;
+  margin-bottom: 10px;
+}

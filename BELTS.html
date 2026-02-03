@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEEL CITY SHOWDOWN</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* TOP NAVIGATION */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .nav-buttons a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.25s ease;
+    }
+
+    .nav-buttons a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO VIDEO */
+    .video-container {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      overflow: hidden;
+      z-index: 1; 
+    }
+
+    .vid1 {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .img1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      z-index: 2;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    /* CHAMPION GRID SECTION */
+    .champion-section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+    }
+
+    .placard-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      width: 100%;
+    }
+
+    .placard {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.1; 
+      border-radius: 25px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .placard:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px 10px rgba(255, 204, 0, 0.5);
+    }
+
+    /* WHITE BOLD LABELS */
+    .belt-label-top, 
+    .belt-label-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 3;
+      transition: opacity 0.3s ease;
+    }
+
+    .belt-label-top { top: 30px; font-size: 24px; }
+    .belt-label-bottom { bottom: 30px; font-size: 20px; }
+
+    .placard:hover .belt-label-top,
+    .placard:hover .belt-label-bottom {
+      opacity: 0;
+    }
+
+    .img-base {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 60%;
+      object-fit: contain; 
+      z-index: 2;
+    }
+
+    /* CHAMPION HOVER */
+    .img-hover-container {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 5;
+    }
+
+    .placard:hover .img-hover-container {
+      opacity: 1;
+    }
+
+    .img-hover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top; 
+    }
+
+    .text-overlay {
+      position: absolute;
+      bottom: 0; width: 100%;
+      padding: 25px 10px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.95));
+      text-align: center;
+      color: white;
+    }
+
+    .champion-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffcc00;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .champion-name {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 2px;
+      opacity: 0.95;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .placard-container { grid-template-columns: 1fr; }
+      .belt-label-top { font-size: 18px; top: 20px; }
+      .belt-label-bottom { font-size: 16px; bottom: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="top-bar">
+    <div class="nav-buttons">
+      <a href="HOMEPAGE.html">HOME </a>
+      <a href="roster.html">ROSTER</a>
+      <a href="socials.html">SOCIALS</a>
+      <a href="events.html">EVENTS</a>
+    </div>
+  </div>
+
+  <!-- HERO VIDEO -->
+  <div class="video-container">
+    <video src="slam_thumbs76.mp4" class="vid1" autoplay muted loop playsinline></video>
+    <img src="Steel_City_Showdown.png" width="300px" class="img1">
+  </div>
+
+  <!-- CHAMPION SECTION -->
+  <div class="champion-section">
+    <div class="placard-container">
+
+      <!--SCS UNIFIED MENS -->
+      <div class="placard">
+        <p class="belt-label-top">SCS UNIFIED</p>
+        <img src="BELTS/UNIFIED.png" class="img-base"> 
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/CASS.png" class="img-hover"> 
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Jacob Cass</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORLD HEAVYWEIGHT -->
+      <div class="placard">
+        <p class="belt-label-top">HEAVYWEIGHT</p>
+        <img src="BELTS/heavyweight.png" class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/KAREEM.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Kareem Nelson</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WOMENS SCS UNIFIED -->
+      <div class="placard">
+        <p class="belt-label-top">WOMEN'S UNIFIED SCS</p>
+        <img src="BELTS/scs womens.png" class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/WOMEN/taryn breeze.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Taryn Breeze</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WOMENS WORLD  -->
+      <div class="placard">
+        <p class="belt-label-top">WOMEN'S WORLD</p>
+        <img src="BELTS/WOMENS WORLD.png" class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/WOMEN/eglia.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Eglia Tryst</p>
+          </div>
+        </div>
+      </div>
+      <!-- NA  -->
+      <div class="placard">
+        <p class="belt-label-top">NORTH AMERICAN</p>
+        <img src="BELTS/NA BELT.png" class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/NOLAN.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Nolan Wright</p>
+          </div>
+        </div>
+      </div>
+      <!-- NA  -->
+      <div class="placard">
+        <p class="belt-label-top">European</p>
+        <img src="BELTS/eu.png" class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/kris.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Kris Talls</p>
+          </div>
+        </div>
+      </div>
+      <!-- wildcard  -->
+      <div class="placard">
+        <p class="belt-label-top">Wildcard</p>
+        <img src="BELTS/scs wild card.png " class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/kris.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">JIMMY HARPER </p>
+          </div>
+        </div>
+      </div>
+      <!-- Internet  -->
+      <div class="placard">
+        <p class="belt-label-top">Internet</p>
+        <img src="BELTS/internet.png " class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/jaxson.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Jaxson Barret </p>
+          </div>
+        </div>
+      </div>
+      <!-- tv  -->
+      <div class="placard">
+        <p class="belt-label-top">Televison</p>
+        <img src="BELTS/tv.png " class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/jaxson.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Jaxson Barret </p>
+          </div>
+        </div>
+      </div>
+      <!-- MILLION DOLLAR  -->
+      <div class="placard">
+        <p class="belt-label-top">Million Dollar</p>
+        <img src="BELTS/million dollar.png " class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIP</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/MEN/MANDO.png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPION</h2>
+            <p class="champion-name">Joseph Manderson </p>
+          </div>
+        </div>
+      </div>
+     <!-- TAG TEAM -->
+      <div class="placard">
+        <p class="belt-label-top">TAG TEAM</p>
+        <img src="BELTS/million dollar.png " class="img-base">
+        <p class="belt-label-bottom">CHAMPIONSHIPS</p>
+        <div class="img-hover-container">
+          <img src="ROSTER PHOTOD/CHAMPION BELT PHOTOS/BALD HEEDS..png" class="img-hover">
+          <div class="text-overlay">
+            <h2 class="champion-title">CHAMPIONS</h2>
+            <p class="champion-name">THE BALD HEEDS </p>
+          </div>
+        </div>
+      </div>
+
+   
+
+
+
+
+    </div>
+  </div>
+
+</body>
+</html>

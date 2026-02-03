@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEEL CITY SHOWDOWN</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* TOP NAVIGATION */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .nav-buttons a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.25s ease;
+    }
+
+    .nav-buttons a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO VIDEO */
+    .video-container {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .vid1 {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .img1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      z-index: 2;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    /* MAIN CONTENT SECTION - PADDING REDUCED */
+    .main-content {
+      /* Reduced padding from 80px to 30px */
+      padding: 30px 20px 80px; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 8vw, 4rem); 
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 40px; /* Reduced margin */
+      text-align: center;
+      letter-spacing: -1px;
+    }
+
+    /* PLACARD GRID */
+    .placard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+      gap: 30px;
+      width: 100%;
+      max-width: 1300px;
+    }
+
+    /* THE PLACARD (Perfectly fit for 2048x2048) */
+    .placard {
+      position: relative;
+      border-radius: 40px; 
+      aspect-ratio: 1 / 1; /* Forces 1:1 square ratio */
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .placard img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Fills the square perfectly */
+      transition: transform 0.5s ease;
+    }
+
+    /* HOVER OVERLAY CONTENT */
+    .placard-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85); 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .placard:hover .placard-overlay {
+      opacity: 1;
+    }
+
+    .placard:hover img {
+      transform: scale(1.05);
+    }
+
+    /* OVERLAY TEXT STYLING */
+    .placard-overlay h2 {
+      font-size: 2rem;
+      color: #ffcc00;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .placard-overlay .event-date {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .placard-overlay p {
+      font-size: 1rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="top-bar">
+    <div class="nav-buttons">
+      <a href="HOMEPAGE.html">HOME</a>
+      <a href="roster.html">ROSTER</a>
+      <a href="BELTS.html">BELTS</a>
+      <a href="socials.html">SOCIALS</a>
+    </div>
+  </div>
+
+  <!-- HERO VIDEO -->
+  <div class="video-container">
+    <video src="slam_thumbs76.mp4" class="vid1" autoplay muted loop playsinline></video>
+    <img src="Steel_City_Showdown.png" width="300px" class="img1">
+  </div>
+
+  <!-- MAIN CONTENT BELOW VIDEO -->
+  <main class="main-content">
+    <h1 class="section-title">Upcoming Events</h1>
+
+    <div class="placard-grid">
+      
+      <!-- EVENT PLACARD 1 -->
+      <div class="placard">
+        <img src="UPCOMING EVENTS/Slam event.png" alt="Event Name">
+        <div class="placard-overlay">
+          <h2>Steel City Slam</h2>
+          <div class="event-date">Febuary 3rd 3:00pm EST</div>
+          <p>The season officially ignites at the Capital One Arena in Washington, D.C., as we witness the explosive fallout from Coronation. In a main event originally derailed by backstage turmoil, the wait is finally over: Jacob Cass puts his gold on the line against Sean "The Best" Bishop to determine the undisputed SCS Unified Champion. Beyond this long-awaited title match, the atmosphere will be electric with scheduled appearances from a roster of elite talent, including the legendary Ultimo</p>
+        </div>
+      </div>
+
+      <!-- EVENT PLACARD 2 -->
+      <div class="placard">
+        <img src="UPCOMING EVENTS/Clash event.png" alt="Event Name">
+        <div class="placard-overlay">
+          <h2>Steel City Clash</h2>
+          <div class="event-date">Febuary 7th 3:00pm EST</div>
+          <p>The season officially ignites with the first massive clash following the fallout of Coronation. With the landscape forever changed, we celebrate the dawn of a new era as Kareem stands tall as the newly crowned World Heavyweight Champion. However, the celebration will be short-lived; the main event features a high-stakes No. 1 Contendership Match between two of the industry's brightest stars, Phil and Logan, with the winner earning a guaranteed shot at Kareem’s throne.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

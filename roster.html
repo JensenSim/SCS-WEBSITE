@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEEL CITY SHOWDOWN</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* TOP NAVIGATION */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .nav-buttons a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffcc00;
+      transition: width 0.25s ease;
+    }
+
+    .nav-buttons a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO VIDEO */
+    .video-container {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .vid1 {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .img1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      z-index: 2;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    /* PROFILE SECTION */
+    .profile-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .search-bar input, .sort-dropdown select {
+      width: 100%;
+      padding: 12px 18px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.2s ease;
+      background: white;
+    }
+
+    .search-bar input:focus, .sort-dropdown select:focus {
+      border-color: #ffcc00;
+      box-shadow: 0 0 8px rgba(255,204,0,0.4);
+    }
+
+    .profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 25px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-card h3 {
+      text-align: center;
+      padding: 14px 0 10px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* TAGS */
+    .tag-list {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #f0f0f0;
+      color: #555;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <div class="top-bar">
+    <div class="nav-buttons">
+      <a href="HOMEPAGE.html">HOME</a>
+      <a href="BELTS.html">BELTS</a>
+      <a href="socials.html">SOCIALS</a>
+      <a href="events.html">EVENTS</a>
+    </div>
+  </div>
+
+  <!-- HERO VIDEO -->
+  <div class="video-container">
+    <video src="slam_thumbs76.mp4" class="vid1" autoplay muted loop playsinline></video>
+    <img src="Steel_City_Showdown.png" width="300px" class="img1">
+  </div>
+
+  <!-- PROFILE SECTION -->
+  <div class="profile-section">
+
+    <div class="controls">
+      <!-- SEARCH BAR -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search wrestlers...">
+      </div>
+
+      <!-- SORT DROPDOWN -->
+      <div class="sort-dropdown">
+        <select id="sortFilter">
+          <option value="Alphabetical">Sort: Alphabetical (A-Z)</option>
+          <option value="Slam">Filter: Slam</option>
+          <option value="Clash">Filter: Clash</option>
+          <option value="Men">Filter: Men</option>
+          <option value="Women">Filter: Women</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PROFILE CARDS -->
+    <div class="profiles" id="profileGrid">
+
+      <!-- INSTRUCTIONS: Add tags in data-tags (separated by spaces) and inside the span tags -->
+     
+
+      <a href="ROSTER PAGES/PHIL.html" class="profile-card" data-name="Phil" data-tags="Men Clash">
+        <img src="ROSTER PHOTOD/MEN/Phil.png">
+        <h3>Phil</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Clash</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/KDM.html" class="profile-card" data-name="Kaiser De Mort" data-tags="Men Clash">
+        <img src="/ROSTER PHOTOD/MEN/KDM.png">
+        <h3>Kaiser De Mort</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Clash</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/Adam Payne.html" class="profile-card" data-name="Adam Payne" data-tags="Men Clash">
+        <img src="ROSTER PHOTOD/MEN/Adam Payne.png">
+        <h3>Adam Payne</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Slam</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/Jason Flash.html" class="profile-card" data-name="Jason Flash" data-tags="Men Slam">
+        <img src="ROSTER PHOTOD/MEN/Flashachev.png">
+        <h3>Jason Flash</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Slam</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/PKD.html" class="profile-card" data-name="PKD" data-tags="Women Slam">
+        <img src="ROSTER PHOTOD/WOMEN/PKD.png">
+        <h3>PKD</h3>
+        <div class="tag-list"><span class="tag">Women</span><span class="tag">Slam</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/Sean Bishop.html" class="profile-card" data-name="Sean Bishop" data-tags="Men Slam">
+        <img src="ROSTER PHOTOD/MEN/Sean Bishop.png">
+        <h3>Sean 'The Best' Bishop</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Slam</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/Kareem.html" class="profile-card" data-name="Kareem Nelson" data-tags="Men Clash">
+        <img src="ROSTER PHOTOD/MEN/KAREEM.png">
+        <h3>Kareem Nelson</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Clash</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/Gold.html" class="profile-card" data-name="Jason Gold" data-tags="Men Slam">
+        <img src="ROSTER PHOTOD/MEN/GOLD.png">
+        <h3>Jason Gold</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Clash</span></div>
+      </a>
+
+      <a href="ROSTER PAGES/DYNAMO.html" class="profile-card" data-name="Dynamo" data-tags="Men Clash">
+        <img src="ROSTER PHOTOD/MEN/DYNAMO.png">
+        <h3>Dynamo</h3>
+        <div class="tag-list"><span class="tag">Men</span><span class="tag">Slam</span></div>
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const sortFilter = document.getElementById("sortFilter");
+    const profileGrid = document.getElementById("profileGrid");
+
+    function getCards() {
+      return Array.from(document.querySelectorAll(".profile-card"));
+    }
+
+    // ALPHABETICAL SORTING LOGIC
+    function sortAlphabetically() {
+      const cards = getCards();
+      cards.sort((a, b) => {
+        const nameA = a.getAttribute("data-name").toLowerCase();
+        const nameB = b.getAttribute("data-name").toLowerCase();
+        return nameA.localeCompare(nameB);
+      });
+      // Re-append in sorted order
+      cards.forEach(card => profileGrid.appendChild(card));
+    }
+
+    // COMBINED FILTER AND SEARCH LOGIC
+    function filterAndSearch() {
+      const query = searchInput.value.toLowerCase();
+      const filterValue = sortFilter.value;
+      const cards = getCards();
+
+      cards.forEach(card => {
+        const name = card.getAttribute("data-name").toLowerCase();
+        const tags = card.getAttribute("data-tags").split(" ");
+        
+        const matchesSearch = name.includes(query);
+        const matchesFilter = (filterValue === "Alphabetical" || tags.includes(filterValue));
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // EVENT LISTENERS
+    searchInput.addEventListener("input", filterAndSearch);
+    sortFilter.addEventListener("change", filterAndSearch);
+
+    // AUTO-SORT ON PAGE LOAD
+    window.addEventListener("DOMContentLoaded", () => {
+      sortAlphabetically();
+    });
+  </script>
+
+</body>
+</html>
+

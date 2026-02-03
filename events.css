@@ -1,0 +1,91 @@
+/* MAIN CONTENT SECTION */
+.main-content {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: clamp(2.5rem, 8vw, 4rem); /* Scales between mobile and desktop */
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 60px;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+/* PLACARD GRID */
+.placard-grid {
+  display: grid;
+  /* Automatically adjusts column count based on screen size */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 40px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* THE PLACARD (Perfectly fit for 2048x2048) */
+.placard {
+  position: relative;
+  border-radius: 40px; /* Big rounded ends */
+  aspect-ratio: 1 / 1; /* Forces 1:1 square ratio */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.placard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the square perfectly */
+  transition: transform 0.5s ease;
+}
+
+/* HOVER OVERLAY CONTENT */
+.placard-overlay {
+  position: absolute;
+  inset: 0; /* Covers the entire placard */
+  background: rgba(0, 0, 0, 0.85); /* Dark background for readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.placard:hover .placard-overlay {
+  opacity: 1;
+}
+
+.placard:hover img {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* OVERLAY TEXT STYLING */
+.placard-overlay h2 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.placard-overlay .event-date {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.placard-overlay p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}

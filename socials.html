@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEEL CITY SHOWDOWN — SOCIALS</title>
+
+    <!-- YOUR ORIGINAL CSS STAYS HERE -->
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* TOP NAVIGATION */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 70px;
+            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.55);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-buttons a {
+            color: white;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+            position: relative;
+            transition: 0.25s ease;
+        }
+
+        .nav-buttons a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #ffcc00;
+            transition: width 0.25s ease;
+        }
+
+        .nav-buttons a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO VIDEO */
+        .video-container {
+            position: relative;
+            width: 100vw;
+            height: 70vh;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .vid1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            z-index: 2;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+        }
+    </style>
+
+    <!-- NEW SOCIALS CSS (EXTERNAL) -->
+    <link rel="stylesheet" href="socials.css">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="top-bar">
+        <div class="nav-buttons">
+            <a href="HOMEPAGE.html">HOME</a>
+            <a href="roster.html">ROSTER</a>
+            <a href="BELTS.html">BELTS</a>
+            <a href="events.html">EVENTS</a>
+        </div>
+    </div>
+
+    <!-- HERO VIDEO -->
+    <div class="video-container">
+        <video src="slam_thumbs76.mp4" class="vid1" autoplay muted loop playsinline></video>
+        <img src="Steel_City_Showdown.png" width="300px" class="img1">
+    </div>
+
+    <!-- SOCIALS CONTENT -->
+    <div class="socials-wrapper">
+
+        <h2 class="section-title">RECENT POSTS</h2>
+
+        <!-- EMBEDDED X POST (USING TWITTER DOMAIN FOR WIDGETS) -->
+        <blockquote class="twitter-tweet">
+            <a href="https://twitter.com/steel_citysd/status/2017745472643903804"></a>
+        </blockquote>
+
+        <!-- WIDGETS SCRIPT MUST BE AFTER THE BLOCKQUOTE -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <h2 class="section-title">FOLLOW THE FED</h2>
+
+        <div class="social-grid">
+            <a href="https://www.twitch.tv/steelcityshowdownscs" class="social-box">
+                <img src="SOCIALS ICONS/TWITCH.PNG" class="social-icon">
+                <p>Twitch</p>
+            </a>
+
+            <a href="https://www.youtube.com/@SteelCityShowdown47" class="social-box">
+                <img src="SOCIALS ICONS/YOUTUBE.png" class="social-icon">
+                <p>YouTube</p>
+            </a>
+
+            <a href="https://x.com/steel_citysd?s=11" class="social-box">
+                <img src="SOCIALS ICONS/X.PNG" class="social-icon">
+                <p>X</p>
+            </a>
+
+            <a href="https://discord.gg/53q24nCu9D" class="social-box">
+                <img src="SOCIALS ICONS/3670157.png" class="social-icon">
+                <p>Discord</p>
+            </a>
+
+            <a href="https://www.tiktok.com/@steelcityshowdown" class="social-box">
+                <img src="SOCIALS ICONS/TIKTOK.png" class="social-icon">
+                <p>TikTok</p>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
